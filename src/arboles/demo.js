@@ -1,4 +1,5 @@
 import { React, Arbol, Flecha, Nodo, Flechas } from '../componentes';
+
 export default () => (
 
     <Arbol nombre="Arbol de demostración">
@@ -8,12 +9,13 @@ export default () => (
                 <Nodo id="nodo2" texto="FF" />
             </Nodo>
             <Nodo id="nodo1" texto="asd">
-                <Nodo texto="NN" />
-                <Nodo id="nodo3" texto="ASD" techo="The Rain in Spain" />
+                <Nodo texto="NN" rasgos="asdasd1, gdfdfg2, asdads3">
                 </Nodo>
+                <Nodo id="nodo3" texto="ASD" techo="The Rain in Spain" />
+            </Nodo>
         </Nodo>
         <Flechas>
-            <Flecha inicio="nodo3" destino="nodo1" curva="2"/>
+            <Flecha inicio="nodo3" destino="nodo1" curva="2" />
         </Flechas>
     </Arbol>
 
