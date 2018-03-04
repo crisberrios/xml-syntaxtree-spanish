@@ -3,7 +3,7 @@ import { React, Arbol, Flecha, Nodo, Flechas } from '../componentes';
 export default () => (
 
     <Arbol nombre="Arbol de demostración">
-        <Nodo texto="Padre\1">
+        <Nodo texto="Padre\\1">
             <Nodo texto="Nodo normal">
                 <Nodo texto="NN" />
                 <Nodo id="nodo2" texto="FF" />

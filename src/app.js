@@ -9,7 +9,6 @@ export default function(a) {
 ReactDOM.render(
   <div>
     <Ayuda />
-    {a.map((a, index) => <div key={index}>{a}</div>)}
   </div>,
   document.getElementById('root')
 );

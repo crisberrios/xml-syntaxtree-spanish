@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class Nodo extends Component {
@@ -11,7 +10,7 @@ class Nodo extends Component {
   }
   getRasgos() {
     if (!this.props.rasgos) {
-      return;
+      return '';
     }
     return ` \\\\ \\substack{
             \\bigg[
