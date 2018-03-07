@@ -32,26 +32,26 @@ class ParserApp extends Component {
 `<Arbol nombre="Arbol de demostración">
     <Nodo texto="T">
         <Nodo texto="T">
-            <Nodo texto="vX">
-                <Nodo texto="Clitico" />
-                <Nodo texto="vX">
+            <Nodo texto="v*">
+                <Nodo texto="Clítico" st="st" />
+                <Nodo texto="v*">
                     <Nodo texto="Verbo"/>
-                    <Nodo texto="vX"/>
+                    <Nodo texto="v*"/>
                 </Nodo>
             </Nodo>
             <Nodo texto="T" />            
         </Nodo>                
-        <Nodo texto="vX">
-            <Nodo texto="vX">
-                <Nodo texto="Clitico" />
-                <Nodo texto="vX">
+        <Nodo texto="v*">
+            <Nodo texto="v*">
+                <Nodo texto="Clítico" />
+                <Nodo texto="v*">
                     <Nodo texto="Verbo" />
-                    <Nodo texto="vX" />
+                    <Nodo texto="v*" />
                 </Nodo>
             </Nodo>
             <Nodo texto="V">
                 <Nodo texto="Verbo" />
-                <Nodo texto="Clitico" />
+                <Nodo texto="Clítico" />
             </Nodo>
         </Nodo>
     </Nodo>

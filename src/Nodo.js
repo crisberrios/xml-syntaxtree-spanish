@@ -22,7 +22,7 @@ class Nodo extends Component {
   render() {
     return (
       <div> {
-        `${this.getRoof()}.${this.getNode()}{${this.props.texto + this.getRasgos() || 'SIN TEXTO'}}`
+        `${this.getRoof()}.${this.getNode()}{${this.props.st ? '\\sout{' : ''}${this.props.texto + this.getRasgos() || 'SIN TEXTO'}${this.props.st ?'}' : ''}}`
       }
         {this.props.children}
         {`${this.props.techo ? '' : ' ]'}`}

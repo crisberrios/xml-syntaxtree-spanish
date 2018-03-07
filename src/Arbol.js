@@ -15,7 +15,8 @@ class Arbol extends Component {
 \\usepackage{tree-dvips}
 \\usepackage{linguex}
 \\usepackage{graphicx}
-\\usepackage{amsmath}          
+\\usepackage{amsmath}
+\\usepackage[normalem]{ulem}
 \\begin{document}
 \\Tree`
           }
