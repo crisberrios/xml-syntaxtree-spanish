@@ -4,13 +4,16 @@ class Arbol extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.nombre}</h3>
+        <h3>% {this.props.nombre}</h3>
         <hr />
         <pre style={{paddingLeft: 20}}>
           {
-            `\\documentclass{article}
+`\\documentclass{article}
 \\usepackage{qtree}
 \\usepackage{tree-dvips}
+\\usepackage{linguex}
+\\usepackage{graphicx}
+\\usepackage{amsmath}          
 \\begin{document}
 \\Tree`
           }

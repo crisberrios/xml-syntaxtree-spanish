@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -13,20 +16,48 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <div id="root"></div>
+  <title>React App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Ayuda</h2>
+        <h3>Uso</h3>
+        <ul>
+          <li>
+            <strong>&lt;Nodo&gt;</strong>: El elemento Nodo acepta las siguientes propiedades:
+            <ul>
+              <li>id: utilizado como identificador global del nodo. Ej: nodo1, raíz, etc</li>
+              <li>texto: texto del nodo</li>
+              <li>rasgos: separados por coma, agrega rasgos al nodo</li>
+              <li>techo: esta
+                <strong>propiedad</strong> indica que es un nodo techo. Un nodo techo no debe contener nodos
+                <strong>hijo</strong> ejemplo:
+                <strong>&lt;Nodo texto="nn" techo /&gt;</strong>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Modificadores de texto</h3>
+        <ul>
+          <li>
+            <strong>\1</strong> para barra. Ej: V\1 = V'</li>
+          <li>
+            <strong>_</strong> para subíndice. Ej: V_o </li>
+          <li>
+            <strong>\textsubscript</strong> para subíndice sin itálicas. Ej: A\textsubscript{ABC} o A\textsubscript B</li>
+          <li>
+            <strong>^</strong> para superíndice. Ej: V^x. Entre llaves, ej: v^{PX} para múltiples caracteres en superíndice</li>
+          <li>
+            <strong>\textsuperscript</strong> para superíndice sin itálicas. Ej: A\textsuperscript{ABC} o A\textsuperscript B</li>
+        </ul>
+        <hr />
+      </div>
+    </div>
     <div id="parser"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  </div>
+</body>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start`.
-      To create a production bundle, use `npm run build`.
-    -->
-  </body>
 </html>

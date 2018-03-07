@@ -1,6 +1,5 @@
 import parse from 'xml-parser';
 import { React, Component, Arbol, Flecha, Nodo, Flechas } from './componentes';
-import brace from 'brace';
 import AceEditor from 'react-ace';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
@@ -67,24 +66,35 @@ class ParserApp extends Component {
     render() {
         return (
             <div>
-                <div style={{ textAlign: 'center' }}>
-                    <AceEditor
-                        mode="xml"
-                        theme="monokai"
-                        onChange={(value) => this.handleValueChange(value)}
-                        name="UNIQUE_ID_OF_DIV"
-                        value={this.state.value}
-                        editorProps={{ $blockScrolling: true }}
-                        style={{ width: 900 }}
-                    />
-                    <CopyToClipboard text={this.state.clipboard}>
-                        <button ref={(ref) => this.button = ref} style={{ display: 'none' }}>Copy</button>
-                    </CopyToClipboard>
-                    <button style={{ fontSize: 20, width: 100, height: 50 }} onClick={() => this.copyText()}>Copy</button>
+                <div className="row">
+                    <div className="col">
+                        <AceEditor
+                            mode="xml"
+                            theme="monokai"
+                            onChange={(value) => this.handleValueChange(value)}
+                            name="UNIQUE_ID_OF_DIV"
+                            value={this.state.value}
+                            editorProps={{ $blockScrolling: true }}
+                            style={{ width: 900 }}
+                        />
+                    </div>
                 </div>
-                <pre ref={ref => { this.output = ref }}>
-                    {this.state.parsedValue && renderComponent(this.state.parsedValue.root)}
-                </pre>
+                <div className="row justify-content-center">
+                    <div className="col">
+                        <CopyToClipboard text={this.state.clipboard}>
+                            <button ref={(ref) => this.button = ref} style={{ display: 'none' }}>Copy</button>
+                        </CopyToClipboard>
+                        <button style={{ fontSize: 20, width: 100, height: 50 }} onClick={() => this.copyText()}>Copy</button>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <h2> Código LaTeX </h2>
+                        <pre ref={ref => { this.output = ref }}>
+                            {this.state.parsedValue && renderComponent(this.state.parsedValue.root)}
+                        </pre>
+                    </div>
+                </div>
             </div>
         );
 
