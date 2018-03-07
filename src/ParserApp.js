@@ -21,28 +21,40 @@ function renderComponent(element) {
             break;
         default: Component = () => <div></div>
     }
-    return <Component {...attributes} ><React.Fragment>{child}</React.Fragment></Component>;
+    return <Component {...attributes} >{child}</Component>;
 }
 
 
 class ParserApp extends Component {
     constructor(props) {
         super(props);
-        const value = `
-<Arbol nombre="Arbol de demostración">
-  <Nodo texto="Padre\\1">
-    <Nodo texto="Nodo normal">
-      <Nodo texto="NN" />
-        <Nodo id="nodo2" texto="FF" />
-      </Nodo>
-      <Nodo id="nodo1" texto="asd">
-        <Nodo texto="NN" rasgos="asdasd1, gdfdfg2, asdads3" />
-        <Nodo id="nodo3" texto="ASD" techo="The Rain in Spain" />
-      </Nodo>
+        const value = 
+`<Arbol nombre="Arbol de demostración">
+    <Nodo texto="T">
+        <Nodo texto="T">
+            <Nodo texto="vX">
+                <Nodo texto="Clitico" />
+                <Nodo texto="vX">
+                    <Nodo texto="Verbo"/>
+                    <Nodo texto="vX"/>
+                </Nodo>
+            </Nodo>
+            <Nodo texto="T" />            
+        </Nodo>                
+        <Nodo texto="vX">
+            <Nodo texto="vX">
+                <Nodo texto="Clitico" />
+                <Nodo texto="vX">
+                    <Nodo texto="Verbo" />
+                    <Nodo texto="vX" />
+                </Nodo>
+            </Nodo>
+            <Nodo texto="V">
+                <Nodo texto="Verbo" />
+                <Nodo texto="Clitico" />
+            </Nodo>
+        </Nodo>
     </Nodo>
-    <Flechas>
-      <Flecha inicio="nodo3" destino="nodo1" curva="2" />
-    </Flechas>
 </Arbol>`;
         this.state = {
             value,

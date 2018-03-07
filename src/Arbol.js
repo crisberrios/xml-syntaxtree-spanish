@@ -9,6 +9,8 @@ class Arbol extends Component {
         <pre style={{paddingLeft: 20}}>
           {
 `\\documentclass{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
 \\usepackage{qtree}
 \\usepackage{tree-dvips}
 \\usepackage{linguex}
