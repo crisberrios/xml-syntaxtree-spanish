@@ -43,18 +43,22 @@ class ParserApp extends Component {
         </Nodo>                
         <Nodo texto="v*">
             <Nodo texto="v*">
-                <Nodo texto="Clítico" />
+                <Nodo texto="Clítico" rasgos="a" id="2"/>
                 <Nodo texto="v*">
-                    <Nodo texto="Verbo" />
+                    <Nodo texto="Verbo" techo="TestTecho2" id="3"/>
                     <Nodo texto="v*" />
                 </Nodo>
             </Nodo>
             <Nodo texto="V">
-                <Nodo texto="Verbo" />
-                <Nodo texto="Clítico" />
+                <Nodo texto="Verbo" techo="TestTecho1" />
+                <Nodo texto="Clítico" rasgos="a,b" id="1" />
             </Nodo>
         </Nodo>
     </Nodo>
+    <Flechas>
+      <Flecha inicio="1" destino="2" curva="2" />
+      <Flecha inicio="1" destino="2" curva="3" />
+    </Flechas>
 </Arbol>`;
         this.state = {
             value,
