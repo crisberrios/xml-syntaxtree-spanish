@@ -2,6 +2,7 @@ import Arbol from './Arbol';
 import Flecha from './Flecha';
 import Nodo from './Nodo';
 import React, { Component } from 'react';
+import FlechaCuadrada from './FlechaCuadrada';
 
 const Flechas = (props) => <pre>{props.children}</pre>;
 
@@ -12,5 +13,6 @@ export {
     Nodo,
     Flechas,
     React,
-    Component  
+    Component,
+    FlechaCuadrada
 };

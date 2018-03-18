@@ -3,10 +3,21 @@ import './App.css';
 
 class Nodo extends Component {
   getNode() {
-    return this.props.id && !this.props.techo ? `\\node{${this.props.id}}` : '';
+    if (this.props.id && !this.props.techo && !this.props.rasgos) {
+      return this.getNodeText(this.props.texto)
+    }
+    else {
+      return this.props.texto;
+    }
+  }
+  getNodeText(texto) {
+    const nodePosition = Math.floor(texto.length / 2) - 1;
+    const textArray = texto.split('');
+    textArray[nodePosition] = `\\node{${this.props.id}}${textArray[nodePosition]}`;
+    return textArray.join('');
   }
   getRoof() {
-    return this.props.techo ? `\\qroof{${this.props.id ? `\\node{${this.props.id}}` : ''}${this.props.techo}}` : '[';
+    return this.props.techo ? `\\qroof{${this.props.id ? this.getNodeText(this.props.techo) : this.props.techo}}` : '[';
   }
   getRasgos() {
     let lastRasgo = '';
@@ -28,7 +39,7 @@ class Nodo extends Component {
   render() {
     return (
       <div> {
-        `${this.getRoof()}.${this.props.rasgos ? '' : this.getNode()}{${this.props.st ? '\\sout{' : ''}${(this.props.texto + this.getRasgos()) || 'SIN TEXTO'}${this.props.st ? '}' : ''}}`
+        `${this.getRoof()}.{${this.props.st ? '\\sout{' : ''}${this.getNode() + this.getRasgos() || 'SIN TEXTO'}${this.props.st ? '}' : ''}}`
       }
         {this.props.children}
         {`${this.props.techo ? '' : ' ]'}`}

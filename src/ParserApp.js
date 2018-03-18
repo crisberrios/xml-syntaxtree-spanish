@@ -1,5 +1,5 @@
 import parse from 'xml-parser';
-import { React, Component, Arbol, Flecha, Nodo, Flechas } from './componentes';
+import { React, Component, Arbol, Flecha, Nodo, Flechas, FlechaCuadrada } from './componentes';
 import AceEditor from 'react-ace';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
@@ -15,6 +15,8 @@ function renderComponent(element) {
             break;
         case 'Flecha': Component = Flecha;
             break;
+        case 'FlechaCuadrada': Component = FlechaCuadrada;
+        break;
         case 'Nodo': Component = Nodo;
             break;
         case 'Flechas': Component = Flechas;
@@ -50,14 +52,15 @@ class ParserApp extends Component {
                 </Nodo>
             </Nodo>
             <Nodo texto="V">
-                <Nodo texto="Verbo" techo="TestTecho1" />
+                <Nodo texto="Verbo" techo="TestTecho1" id="techo1" />
                 <Nodo texto="Clítico" rasgos="a,b" id="1" />
             </Nodo>
         </Nodo>
     </Nodo>
     <Flechas>
-      <Flecha inicio="1" destino="2" curva="2" />
       <Flecha inicio="1" destino="2" curva="3" />
+      <Flecha inicio="1" destino="3" curva="2" />
+      <FlechaCuadrada inicio="techo1" destino="3" abajo="0.5" />
     </Flechas>
 </Arbol>`;
         this.state = {
