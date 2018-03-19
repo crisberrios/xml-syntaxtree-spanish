@@ -38,7 +38,7 @@ class ParserApp extends Component {
                 <Nodo texto="Clítico" st="st" />
                 <Nodo texto="v*">
                     <Nodo texto="Verbo"/>
-                    <Nodo texto="v*"/>
+                    <Nodo texto="v*" techo="TechoConRasgos" rasgos="rasgo1,rasgo2,rasgo3" sttecho="si" id="techoconrasgos"/>
                 </Nodo>
             </Nodo>
             <Nodo texto="T" />            
@@ -53,14 +53,14 @@ class ParserApp extends Component {
             </Nodo>
             <Nodo texto="V">
                 <Nodo texto="Verbo" techo="TestTecho1" id="techo1" />
-                <Nodo texto="Clítico" rasgos="a,b" id="1" />
+                <Nodo texto="Clítico" rasgos="rasgo1,rasgo2" id="1" />
             </Nodo>
         </Nodo>
     </Nodo>
     <Flechas>
       <Flecha inicio="1" destino="2" curva="3" />
       <Flecha inicio="1" destino="3" curva="2" />
-      <FlechaCuadrada inicio="techo1" destino="3" abajo="0.5" />
+      <FlechaCuadrada inicio="techo1" destino="techoconrasgos" abajo="1.5" />
     </Flechas>
 </Arbol>`;
         this.state = {

@@ -17,7 +17,7 @@ class Nodo extends Component {
     return textArray.join('');
   }
   getRoof() {
-    return this.props.techo ? `\\qroof{${this.props.id ? this.getNodeText(this.props.techo) : this.props.techo}}` : '[';
+    return this.props.techo ? `\\qroof{${this.props.sttecho ? '\\sout{' : ''}${this.props.id ? (this.getNodeText(this.props.techo)) : this.props.techo}${this.props.sttecho ? '}' : ''}${this.getRasgos()}}` : '[';
   }
   getRasgos() {
     let lastRasgo = '';
@@ -29,17 +29,17 @@ class Nodo extends Component {
       lastRasgo = rasgosArr.pop();
     }
     rasgosArr.push('')
-    return ` \\\\ \\substack{
-            \\bigg[
+    return ` \\\\ \\substack{\\footnotesize
+            \\big${rasgosArr.length > 2 ? 'g' : ''}[
             \\begin{array}{ll}
             ${rasgosArr.join('\\\\')}${this.props.id ? `\\node{${this.props.id}}{${lastRasgo}}` : ''}
             \\end{array}
-            \\bigg]}`
+            \\big${rasgosArr.length > 2 ? 'g' : ''}]}`
   }
   render() {
     return (
       <div> {
-        `${this.getRoof()}.{${this.props.st ? '\\sout{' : ''}${this.getNode() + this.getRasgos() || 'SIN TEXTO'}${this.props.st ? '}' : ''}}`
+        `${this.getRoof()}.{${this.props.st ? '\\sout{' : ''}${this.getNode() + (this.props.techo ? '' : this.getRasgos()) || 'SIN TEXTO'}${this.props.st ? '}' : ''}}`
       }
         {this.props.children}
         {`${this.props.techo ? '' : ' ]'}`}
