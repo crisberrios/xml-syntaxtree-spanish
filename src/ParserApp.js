@@ -35,9 +35,9 @@ class ParserApp extends Component {
     <Nodo texto="T">
         <Nodo texto="T">
             <Nodo texto="v*">
-                <Nodo texto="Clítico" st="st" />
+                <Nodo texto="Clítico" st="st" id="nodoCliticoSt" />
                 <Nodo texto="v*">
-                    <Nodo texto="Verbo"/>
+                    <Nodo texto="Verbo" id="nodoVerbo"/>
                     <Nodo texto="v*" techo="TechoConRasgos" rasgos="rasgo1,rasgo2,rasgo3" sttecho="si" id="techoconrasgos"/>
                 </Nodo>
             </Nodo>
@@ -59,6 +59,7 @@ class ParserApp extends Component {
     </Nodo>
     <Flechas>
       <Flecha inicio="1" destino="2" curva="3" />
+      <Flecha inicio="nodoVerbo" destino="nodoCliticoSt" curva="1" />
       <Flecha inicio="1" destino="3" curva="2" />
       <FlechaCuadrada inicio="techo1" destino="techoconrasgos" abajo="1.5" />
     </Flechas>
