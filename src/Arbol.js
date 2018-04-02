@@ -22,8 +22,9 @@ class Arbol extends Component {
 \\Tree`
           }
           {this.props.children}
-          {`}
-          \\end{document}`}
+          {
+            `}
+\\end{document}`}
         </pre>
         <hr />
       </div>

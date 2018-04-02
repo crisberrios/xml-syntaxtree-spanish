@@ -14,7 +14,7 @@ class Nodo extends Component {
     const nodePosition = Math.floor(texto.length / 2) - 1;
     const textArray = texto.split('');
     const nodeText = `\\node{${this.props.id}}{${st ? '\\sout{' : ''}${textArray[nodePosition]}${st ? '}' : ''}}`;
-    if (st && nodePosition > 1) {
+    if (st) {
       return `\\sout{${textArray.slice(0, nodePosition).join('')}}${nodeText}\\sout{${textArray.slice(nodePosition + 1).join('')}}`
     }
     return `${textArray.slice(0, nodePosition).join('')}${nodeText}${textArray.slice(nodePosition + 1).join('')}`

@@ -41,7 +41,8 @@ class ParserApp extends Component {
                     <Nodo texto="v*" techo="TechoConRasgos" rasgos="rasgo1,rasgo2,rasgo3" sttecho="si" id="techoconrasgos"/>
                 </Nodo>
             </Nodo>
-            <Nodo texto="Tachado" techo="testTechoSinNodo" st="si" />            
+            <Nodo texto="Tachado" techo="testTechoSinNodo" st="si" />
+            <Nodo id="otraIdDePrueba" texto="TechoTachadoConId" techo="la" st="si" sttecho="si" />            
         </Nodo>                
         <Nodo texto="v*">
             <Nodo texto="v*">
@@ -57,12 +58,10 @@ class ParserApp extends Component {
             </Nodo>
         </Nodo>
     </Nodo>
-    <Flechas>
-      <Flecha inicio="1" destino="2" curva="3" />
-      <Flecha inicio="nodoVerbo" destino="nodoCliticoSt" curva="1" />
-      <Flecha inicio="1" destino="3" curva="2" />
-      <FlechaCuadrada inicio="techo1" destino="techoconrasgos" abajo="1.5" />
-    </Flechas>
+    <Flecha inicio="1" destino="2" curva="3" />
+    <Flecha inicio="nodoVerbo" destino="nodoCliticoSt" curva="1" />
+    <Flecha inicio="1" destino="3" curva="2" />
+    <FlechaCuadrada inicio="techo1" destino="techoconrasgos" abajo="2" />
 </Arbol>`;
         this.state = {
             value,
