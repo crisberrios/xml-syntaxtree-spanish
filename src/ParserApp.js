@@ -6,9 +6,9 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import 'brace/mode/xml';
 import 'brace/theme/monokai';
 
-function renderComponent(element) {
-    const { name, children, attributes } = element;
-    const child = children.length ? children.map(child => renderComponent(child)) : null;
+function renderComponent(root = {}, index = 0) {
+    const { name = '', children = [], attributes = {} } = root;
+    const child = children.length ? children.map((child, index) => renderComponent(child, index)) : null;
     let Component;
     switch (name) {
         case 'Arbol': Component = Arbol;
@@ -16,38 +16,38 @@ function renderComponent(element) {
         case 'Flecha': Component = Flecha;
             break;
         case 'FlechaCuadrada': Component = FlechaCuadrada;
-        break;
+            break;
         case 'Nodo': Component = Nodo;
             break;
         case 'Flechas': Component = Flechas;
             break;
         default: Component = () => <div></div>
     }
-    return <Component {...attributes} >{child}</Component>;
+    return <Component key={index} {...attributes} >{child}</Component>;
 }
 
 
 class ParserApp extends Component {
     constructor(props) {
         super(props);
-        const value = 
-`<Arbol nombre="Arbol de demostración">
+        const value =
+            `<Arbol nombre="Arbol de demostración">
     <Nodo texto="T">
         <Nodo texto="T">
             <Nodo texto="v*">
                 <Nodo texto="Clítico" st="st" id="nodoCliticoSt" />
-                <Nodo texto="v*">
+                <Nodo texto="v*" st="si">
                     <Nodo texto="Verbo" id="nodoVerbo"/>
                     <Nodo texto="v*" techo="TechoConRasgos" rasgos="rasgo1,rasgo2,rasgo3" sttecho="si" id="techoconrasgos"/>
                 </Nodo>
             </Nodo>
-            <Nodo texto="T" />            
+            <Nodo texto="Tachado" techo="testTechoSinNodo" st="si" />            
         </Nodo>                
         <Nodo texto="v*">
             <Nodo texto="v*">
                 <Nodo texto="Clítico" rasgos="a" id="2"/>
                 <Nodo texto="v*">
-                    <Nodo texto="Verbo" techo="TestTecho2" id="3"/>
+                    <Nodo texto="Verbo" techo="TestTecho2" id="3" st="si"/>
                     <Nodo texto="v*" />
                 </Nodo>
             </Nodo>
@@ -73,6 +73,7 @@ class ParserApp extends Component {
 
     handleValueChange(value) {
         const parsedValue = parse(value);
+        console.dir(parsedValue);
         this.setState({
             value,
             parsedValue
@@ -91,7 +92,7 @@ class ParserApp extends Component {
                         <AceEditor
                             mode="xml"
                             theme="monokai"
-                            onChange={(value) => this.handleValueChange(value)}
+                            onChange={(value = ' ') => this.handleValueChange(value)}
                             name="UNIQUE_ID_OF_DIV"
                             value={this.state.value}
                             editorProps={{ $blockScrolling: true }}

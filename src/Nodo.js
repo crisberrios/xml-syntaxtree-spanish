@@ -3,16 +3,15 @@ import './App.css';
 
 class Nodo extends Component {
   getNode() {
-    if (this.props.id && !this.props.techo && !this.props.rasgos) {
+    if (this.props.id && !this.props.techo) {
       return this.getNodeText(this.props.texto, this.props.st)
     }
     else {
-      return this.props.texto;
+      return `${this.props.st ? '\\sout{' : ''}${this.props.texto}${this.props.st ? '}' : ''}`
     }
   }
   getNodeText(texto, st = false) {
     const nodePosition = Math.floor(texto.length / 2) - 1;
-    console.dir(nodePosition)
     const textArray = texto.split('');
     const nodeText = `\\node{${this.props.id}}{${st ? '\\sout{' : ''}${textArray[nodePosition]}${st ? '}' : ''}}`;
     if (st && nodePosition > 1) {

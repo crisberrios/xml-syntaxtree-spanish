@@ -6,9 +6,9 @@ class Arbol extends Component {
       <div>
         <h3>% {this.props.nombre}</h3>
         <hr />
-        <pre style={{paddingLeft: 20}}>
+        <pre style={{ paddingLeft: 20 }}>
           {
-`\\documentclass{article}
+            `\\documentclass{article}
 \\usepackage[utf8]{inputenc}
 \\usepackage[T1]{fontenc}
 \\usepackage{qtree}
@@ -18,10 +18,12 @@ class Arbol extends Component {
 \\usepackage{amsmath}
 \\usepackage[normalem]{ulem}
 \\begin{document}
+\\resizebox{1\\textwidth}{!}{
 \\Tree`
           }
           {this.props.children}
-          {`\\end{document}`}
+          {`}
+          \\end{document}`}
         </pre>
         <hr />
       </div>
