@@ -38,7 +38,7 @@ class ParserApp extends Component {
                 <Nodo texto="Clítico" st="st" id="nodoCliticoSt" />
                 <Nodo texto="v*" st="si">
                     <Nodo texto="Verbo" id="nodoVerbo"/>
-                    <Nodo texto="v*" techo="TechoConRasgos" rasgos="rasgo1,rasgo2,rasgo3" sttecho="si" id="techoconrasgos"/>
+                    <Nodo texto="v*" techo="TechoConRasgos" rasgos="rasgo1,rasgo2,rasgo3" rasgos2="rasgoB1,rasgoB2,rasgoB3" sttecho="si" id="techoconrasgos"/>
                 </Nodo>
             </Nodo>
             <Nodo texto="Tachado" techo="testTechoSinNodo" st="si" />
@@ -47,14 +47,14 @@ class ParserApp extends Component {
         <Nodo texto="v*">
             <Nodo texto="v*">
                 <Nodo texto="Clítico" rasgos="a" id="2"/>
-                <Nodo texto="v*">
+                <Nodo texto="v*" ultimoPadre="si">
                     <Nodo texto="Verbo" techo="TestTecho2" id="3" st="si"/>
                     <Nodo texto="v*" />
                 </Nodo>
             </Nodo>
-            <Nodo texto="V">
+            <Nodo texto="V" ultimoPadre="si">
                 <Nodo texto="Verbo" techo="TestTecho1" id="techo1" />
-                <Nodo texto="Clítico" rasgos="rasgo1,rasgo2" id="1" />
+                <Nodo texto="Clítico" rasgos="rasgo1,rasgo2" id="1"/>
             </Nodo>
         </Nodo>
     </Nodo>
