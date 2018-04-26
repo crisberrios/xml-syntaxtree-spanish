@@ -12,21 +12,24 @@ class Nodo extends Component {
     }
   };
   getNodeText = (texto, st = false) => {
-    const nodePosition = Math.floor(texto.length / 2) - 1;
+    const nodePosition = Math.ceil(texto.length / 2) - 1;
     const textArray = texto.split("");
     const nodeText = `\\node{${this.props.id}}{${st ? "\\sout{" : ""}${
       textArray[nodePosition]
     }${st ? "}" : ""}}`;
-    if (st) {
+    if (st && texto.length > 1) {
       return `\\sout{${textArray
         .slice(0, nodePosition)
         .join("")}}${nodeText}\\sout{${textArray
         .slice(nodePosition + 1)
         .join("")}}`;
     }
-    return `${textArray
-      .slice(0, nodePosition)
-      .join("")}${nodeText}${textArray.slice(nodePosition + 1).join("")}`;
+    if (texto.length > 1) {
+      return `${textArray
+        .slice(0, nodePosition)
+        .join("")}${nodeText}${textArray.slice(nodePosition + 1).join("")}`;
+    }
+    return nodeText;
   };
 
   getRoof = () => {
