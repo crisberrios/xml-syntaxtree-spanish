@@ -69,7 +69,7 @@ class Nodo extends Component {
     return ` \\\\ \\substack{\\footnotesize
             ${this.getRasgos2()}${this.getBracket("[", rasgosArr.length)}
             \\begin{array}{ll}
-            ${rasgosArr.join("\\\\\\relax")}${
+            ${rasgosArr.join("\\\\\\relax ")}${
       this.props.id ? `\\node{${this.props.id}}{${lastRasgo}}` : ""
     }
             \\end{array}
